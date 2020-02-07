@@ -1,32 +1,71 @@
 package Pages;
 
-import org.openqa.selenium.WebDriver;
+import Tests.BaseTest;
+import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.internal.FindsByCssSelector;
-import org.openqa.selenium.support.FindBy;
-import org.testng.annotations.Factory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class BasePage {
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-    @FindBy(id = "header-container")
-    public WebElement header;
 
-    @FindBy(id = "search-text")
-    public WebElement searchInput;
-
-    @FindBy(id = "main-category-choose-label")
-    public WebElement category;
-
-    @FindBy(id = "param_subcat")
-    public WebElement brandCar;
-
-    @FindBy(css = "#param_price .filter-item-from")
-    public WebElement priceFrom;
+public class BasePage extends BaseTest  {
 
 
 
-    @FindBy(css = "#param_price .filter-item-to")
-    public WebElement priceTo;
+//   public WebElement setSelector(String cssSelector){
+//
+//     WebElement element = driver.findElement(By.cssSelector(cssSelector));
+//    return element;
+//   }
+   private WebDriverWait waitElement(){
+       String exWait =  properties.getProperty("explicitlyWait");
+        return new WebDriverWait(driver, Long.parseLong(exWait));
+
+    }
+
+    protected WebElement checkElementIsVisible (WebElement element){
+        WebElement el = waitElement().until(ExpectedConditions.visibilityOf((element)));
+        return el;
+    }
+
+
+
+  protected WebElement searchInput(){
+     WebElement el = waitElement().until(ExpectedConditions.visibilityOfElementLocated((By.cssSelector("#search-text")) ));
+    return el;
+   }
+
+
+
+    protected BasePage category(){
+        driver.findElement(By.cssSelector("main-category-choose-label"));
+  return this;
+ }
+
+    protected BasePage brandCar(){
+        driver.findElement(By.cssSelector("param_subcat"));
+  return this;
+ }
+
+    protected BasePage priceFrom(){
+        driver.findElement(By.cssSelector("#param_price .filter-item-from"));
+    return this;
+ }
+
+    protected BasePage priceTo(){
+        driver.findElement(By.cssSelector("#param_price .filter-item-to"));
+  return this;
+
+ }
+
+ protected WebElement city(String city){
+
+        WebElement el = driver.findElement(By.cssSelector("#cityField"));
+        return el;
+ }
+
+
 
 
 }
