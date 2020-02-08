@@ -1,7 +1,9 @@
 package Helper;
 
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.*;
@@ -45,7 +47,7 @@ public class Configuration {
 
 
 
-    public long getImplWait(){
+    public static long getImplWait(){
         String implWait = properties().getProperty("implicitlyWait");
         return Long.parseLong(implWait);
     }
@@ -57,10 +59,32 @@ public class Configuration {
 //
 //    }
 
-    public WebDriver getChromeDriver(){
+    public static WebDriver getChromeDriver(){
+        System.setProperty("webdriver.chrome.driver", properties().getProperty("pathToChromeDriver"));
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("enable-automation");
+//        options.addArguments("--headless");
+        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--dns-prefetch-disable");
+        options.addArguments("--disable-gpu");
+        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
 
-        return new ChromeDriver();
+
+
+
+
+//        System.setProperty("webdriver.chrome.logfile", "C:\\Users\\n111k\\IdeaProjects\\tests-new_test\\src\\main\\resources\\chromedriver.log");
+//        System.setProperty("webdriver.chrome.verboseLogging", "true");
+
+
+//
+
+
+        return new ChromeDriver(options);
     }
 
 
