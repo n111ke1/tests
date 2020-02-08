@@ -2,28 +2,27 @@ package Tests;
 
 
 
-import Helper.CustomChromeDriver;
-import org.openqa.selenium.By;
+import Helper.Configuration;
+import org.junit.After;
+import org.junit.Before;
 import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.*;
+
 
 import java.io.*;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
-    public static WebDriver driver = null;
+public class BaseTest extends Configuration {
 
-    public Properties properties;
+    public  WebDriver driver ;
 
 
-    @BeforeMethod()
-    public void setUp() throws IOException {
-        properties.load(new FileReader("src/main/resources/data.properties"));
+    @Before
+    public void setUp() {
+
 
             ChromeOptions options = new ChromeOptions();
             options.addArguments("enable-automation");
@@ -38,7 +37,7 @@ public class BaseTest {
             options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
 
-            System.setProperty("webdriver.chrome.driver", properties.getProperty("pathToChromeDriver"));
+            System.setProperty("webdriver.chrome.driver", readData().getProperty("pathToChromeDriver"));
             driver = new ChromeDriver(options);
 
 
@@ -46,18 +45,15 @@ public class BaseTest {
 //        System.setProperty("webdriver.chrome.verboseLogging", "true");
 
 
-
-        String implWait = properties.getProperty("implicitlyWait");
-
-        driver.manage().timeouts().implicitlyWait(Long.parseLong(implWait), TimeUnit.SECONDS);
-        driver.get(properties.getProperty("baseUrl"));
+        driver.manage().timeouts().implicitlyWait(getImplWait(), TimeUnit.SECONDS);
+        driver.get(readData().getProperty("baseUrl"));
 
     }
 
 
 
 
-    @AfterTest
+    @After
     public void tearDown() {
         driver.close();
     }

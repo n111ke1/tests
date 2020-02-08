@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -18,9 +19,9 @@ public class BasePage extends BaseTest  {
 //     WebElement element = driver.findElement(By.cssSelector(cssSelector));
 //    return element;
 //   }
-   private WebDriverWait waitElement(){
-       String exWait =  properties.getProperty("explicitlyWait");
-        return new WebDriverWait(driver, Long.parseLong(exWait));
+   public WebDriverWait waitElement(){
+
+        return new WebDriverWait(driver, getExplWait());
 
     }
 
