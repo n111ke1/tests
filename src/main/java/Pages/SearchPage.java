@@ -3,6 +3,7 @@ package Pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,10 +16,13 @@ public class SearchPage extends  BasePage {
         super(driver);
     }
 
-    public SearchPage checkInputText(String inputText){
 
-        String el = searchInput().getAttribute("value");
-        Assert.assertEquals(el, inputText, "invalid searchInputValue");
+
+
+
+    public SearchPage checkInputText(String inputText){
+        String el =  searchInput.getAttribute("value");
+        Assert.assertEquals("error", inputText, el);
         return this;
     }
 

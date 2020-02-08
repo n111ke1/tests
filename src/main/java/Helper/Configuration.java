@@ -55,7 +55,7 @@ public class Configuration {
 //    public long getExplWait(){
 //
 //        String explicitlyWait = properties.getProperty("explicitlyWait");
-//        return Long.parseLong(explicitlyWait);
+//        return Long.parseLong(ex  plicitlyWait);
 //
 //    }
 
@@ -71,6 +71,7 @@ public class Configuration {
         options.addArguments("--dns-prefetch-disable");
         options.addArguments("--disable-gpu");
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+
 
 
 

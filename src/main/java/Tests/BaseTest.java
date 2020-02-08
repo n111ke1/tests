@@ -3,9 +3,12 @@ package Tests;
 
 
 import Helper.Configuration;
+import Pages.BasePage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -49,20 +52,18 @@ public class BaseTest {
 
 
 
-
-    public void openPage(){
+    public BasePage openPage(){
         driver.manage().timeouts().implicitlyWait(Configuration.getImplWait(), TimeUnit.MILLISECONDS);
         driver.get(Configuration.properties().getProperty("baseUrl"));
-
+        return new BasePage(driver);
     }
 
 
 
 
 
-    @After
+    @AfterEach
     public void tearDown() {
-
         driver.close();
     }
 

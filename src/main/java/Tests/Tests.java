@@ -4,16 +4,24 @@ import Pages.BasePage;
 import Pages.SearchPage;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+import javax.sql.rowset.serial.SerialArray;
 
 
 public class Tests extends BaseTest {
+SearchPage searchPage;
+
+public void setUp(){
+    searchPage = PageFactory.initElements(driver, SearchPage.class);
+}
 
 
 @Test
     public void checkSearch(){
     openPage();
-    new SearchPage(driver)
-            .checkInputText("легковые автомобили");
+    searchPage.checkInputText("легковые автомобили");
+
 
 }
 
