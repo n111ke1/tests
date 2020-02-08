@@ -17,12 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class BasePage {
-    WebDriver driver;
 
-//    public BasePage(WebDriver driver){
-//        this.driver = driver;
-//        this.wait = new WebDriverWait(driver, 8);
-//    }
 
     public BasePage(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -33,14 +28,16 @@ public class BasePage {
 
 
 @FindBy(id = "search-text")
-   public WebElement searchInput;
-
+   public static WebElement searchInput;
 
 @FindBy(id ="param_subcat" )
     public WebElement brandCar;
 
 @FindBy(id = "main-category-choose-label")
     public WebElement category;
+
+@FindBy(id = "#cityField")
+    public static WebElement city;
 
 //    protected BasePage category(){
 //        driver.findElement(By.cssSelector("main-category-choose-label"));

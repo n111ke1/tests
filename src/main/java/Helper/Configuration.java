@@ -52,12 +52,12 @@ public class Configuration {
         return Long.parseLong(implWait);
     }
 
-//    public long getExplWait(){
-//
-//        String explicitlyWait = properties.getProperty("explicitlyWait");
-//        return Long.parseLong(ex  plicitlyWait);
-//
-//    }
+    public static long getExplWait(){
+
+        String explicitlyWait = properties().getProperty("explicitlyWait");
+        return Long.parseLong(explicitlyWait);
+
+    }
 
     public static WebDriver getChromeDriver(){
         System.setProperty("webdriver.chrome.driver", properties().getProperty("pathToChromeDriver"));
@@ -65,7 +65,7 @@ public class Configuration {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("enable-automation");
 //        options.addArguments("--headless");
-        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--window-size=500,1080");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-extensions");
         options.addArguments("--dns-prefetch-disable");

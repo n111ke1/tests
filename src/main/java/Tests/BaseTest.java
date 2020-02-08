@@ -3,6 +3,7 @@ package Tests;
 
 
 import Helper.Configuration;
+import Helper.ThreadDriver;
 import Pages.BasePage;
 import org.junit.After;
 import org.junit.Before;
@@ -22,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    WebDriver driver = Configuration.getChromeDriver();
+    static WebDriver driver = Configuration.getChromeDriver();
 
 
     static private String browserType = System.getProperty("Browser");
@@ -55,6 +56,7 @@ public class BaseTest {
     public BasePage openPage(){
         driver.manage().timeouts().implicitlyWait(Configuration.getImplWait(), TimeUnit.MILLISECONDS);
         driver.get(Configuration.properties().getProperty("baseUrl"));
+        ThreadDriver.setThreadDriver(driver);
         return new BasePage(driver);
     }
 

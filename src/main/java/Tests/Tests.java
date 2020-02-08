@@ -2,16 +2,18 @@ package Tests;
 
 import Pages.BasePage;
 import Pages.SearchPage;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-
-import javax.sql.rowset.serial.SerialArray;
 
 
 public class Tests extends BaseTest {
-SearchPage searchPage;
+private static SearchPage searchPage;
 
+
+@BeforeEach
 public void setUp(){
     searchPage = PageFactory.initElements(driver, SearchPage.class);
 }
@@ -20,10 +22,22 @@ public void setUp(){
 @Test
     public void checkSearch(){
     openPage();
-    searchPage.checkInputText("легковые автомобили");
+    searchPage.checkFieldValue("легковые автомобили", BasePage.searchInput);
+}
 
+@Test
+    public void checkCity(){
+    openPage();
+    searchPage.checkFieldValue("Днепр", BasePage.city);
+}
+
+@Test
+    public void checkCategoryValue(){
+    openPage();
+    searchPage.checkFieldValueByText("Легковые автомобили");
 
 }
+
 
 //@Test
 //    public void selectedCity(){
