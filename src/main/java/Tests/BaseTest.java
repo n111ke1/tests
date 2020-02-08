@@ -18,8 +18,9 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    Properties properties = Configuration.properties;
-    static WebDriver driver;
+    Properties properties = Configuration.properties();
+
+    WebDriver driver;
 
     static private String browserType = System.getProperty("Browser");
 
@@ -78,7 +79,7 @@ public class BaseTest {
 
     public void openPage(){
 
-        driver.get(new Configuration().properties().getProperty("baseUrl"));
+        driver.get(Configuration.properties().getProperty("baseUrl"));
 
     }
 
