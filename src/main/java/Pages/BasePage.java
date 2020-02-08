@@ -1,39 +1,36 @@
 package Pages;
 
+import Helper.Configuration;
 import Tests.BaseTest;
+import org.junit.Before;
 import org.openqa.selenium.By;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class BasePage extends BaseTest  {
+public class BasePage {
 
 
+    private WebDriver driver;
+    private WebDriverWait wait;
 
-//   public WebElement setSelector(String cssSelector){
-//
-//     WebElement element = driver.findElement(By.cssSelector(cssSelector));
-//    return element;
-//   }
-   public WebDriverWait waitElement(){
-
-        return new WebDriverWait(driver, getExplWait());
-
-    }
-
-    protected WebElement checkElementIsVisible (WebElement element){
-        WebElement el = waitElement().until(ExpectedConditions.visibilityOf((element)));
-        return el;
+    public BasePage(WebDriver driver){
+        this.driver = driver;
+//        this.wait = new WebDriverWait(driver, 8);
     }
 
 
 
-  protected WebElement searchInput(){
-     WebElement el = waitElement().until(ExpectedConditions.visibilityOfElementLocated((By.cssSelector("#search-text")) ));
+
+    protected WebElement searchInput(){
+        WebElement el = driver.findElement(By.cssSelector("#search-text"));
+//      WebElement el = wait.until(ExpectedConditions.visibilityOfElementLocated((By.cssSelector("#search-text")) ));
     return el;
    }
 
@@ -41,6 +38,7 @@ public class BasePage extends BaseTest  {
 
     protected BasePage category(){
         driver.findElement(By.cssSelector("main-category-choose-label"));
+
   return this;
  }
 
