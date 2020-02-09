@@ -3,8 +3,6 @@ package Tests;
 import Pages.BasePage;
 import Pages.FilterPage;
 import Pages.SearchPage;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.PageFactory;
@@ -50,6 +48,14 @@ public void setUp(){
     public void checkFieldPriceAfterInputLetters(){
     openPage();
     filterPage.checkPpriceFieldAfterInputLiters();
+}
+
+@Test
+    public void checkTransmissionCheck(){
+    openPage();
+    filterPage.checkTransmissionTypeAll()
+            .checkTransmissionTypeAllAfterSelectedAnother();
+
 }
 
 

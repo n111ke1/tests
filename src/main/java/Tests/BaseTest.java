@@ -37,7 +37,7 @@ public class BaseTest {
 //
 //    {
 //        case "Chrome":
-//            System.setProperty("webdriver.chrome.driver", properties.getProperty("pathToChromeDriver"));
+//
 //            break;
 //
 //            case "FireFox":

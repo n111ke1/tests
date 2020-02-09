@@ -73,13 +73,8 @@ public class Configuration {
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
 
-
-
-
-
-
-//        System.setProperty("webdriver.chrome.logfile", "C:\\Users\\n111k\\IdeaProjects\\tests-new_test\\src\\main\\resources\\chromedriver.log");
-//        System.setProperty("webdriver.chrome.verboseLogging", "true");
+        System.setProperty("webdriver.chrome.logfile", "C:\\Users\\n111k\\IdeaProjects\\tests-new_test\\src\\main\\resources\\chromedriver.log");
+        System.setProperty("webdriver.chrome.verboseLogging", "true");
 
 
 //
