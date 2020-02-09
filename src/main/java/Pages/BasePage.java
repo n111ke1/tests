@@ -31,10 +31,10 @@ public class BasePage {
    public static WebElement searchInput;
 
 @FindBy(id ="param_subcat" )
-    public WebElement brandCar;
+    public static WebElement brandCar;
 
 @FindBy(id = "main-category-choose-label")
-    public WebElement category;
+    public static WebElement category;
 
 @FindBy(id = "#cityField")
     public static WebElement city;

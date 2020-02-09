@@ -65,7 +65,7 @@ public class Configuration {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("enable-automation");
 //        options.addArguments("--headless");
-        options.addArguments("--window-size=500,1080");
+        options.addArguments("--window-size=1920,1080");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-extensions");
         options.addArguments("--dns-prefetch-disable");
