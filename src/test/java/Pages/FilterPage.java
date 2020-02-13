@@ -29,7 +29,7 @@ public class FilterPage extends BasePage {
     }
 
 
-    public FilterPage inputFieldPriceTo(String price) {
+    public FilterPage setValueFieldPriceTo(String price) {
         ElementActions.waitElementPresent(priceToField);
         priceToField.click();
         priceToFieldInput.sendKeys(price);
@@ -37,7 +37,7 @@ public class FilterPage extends BasePage {
         return this;
     }
 
-    public FilterPage inputFieldPriceFrom(String price) {
+    public FilterPage setValueFieldPriceFrom(String price) {
         ElementActions.waitElementPresent(priceFromField);
         priceFromField.click();
         priceFromFieldInput.sendKeys(price);
@@ -47,9 +47,8 @@ public class FilterPage extends BasePage {
 
 
     public FilterPage checkInputFieldPriceFrom(String price) {
-        inputFieldPriceFrom(price);
+        setValueFieldPriceFrom(price);
         WebElement inputedFromEl = ThreadDriver.getWebDriver().findElement(By.cssSelector(".filter-both-item .option-from"));
-        System.out.println(inputedFromEl.getAttribute("value"));
         Assert.assertEquals(inputedFromEl.getAttribute("value"), "");
         return this;
 
@@ -57,7 +56,7 @@ public class FilterPage extends BasePage {
     }
 
     public FilterPage checkInputFieldPriceTo(String price) {
-        inputFieldPriceTo(price);
+        setValueFieldPriceTo(price);
         WebElement inputedToEl = ThreadDriver.getWebDriver().findElement(By.cssSelector(".filter-both-item .option-to"));
         Assert.assertEquals(inputedToEl.getAttribute("value"), "");
         return this;
@@ -116,16 +115,22 @@ public class FilterPage extends BasePage {
 
 
     public FilterPage checkPriceAfterSort(String priceFrom, String priceTo) {
-        inputFieldPriceFrom(priceFrom);
+        setValueFieldPriceFrom(priceFrom);
         WebElement loader = ThreadDriver.getWebDriver().findElement(By.cssSelector("#loader"));
         ElementActions.waitElementDisappear(loader);
-        inputFieldPriceTo(priceTo);
+        setValueFieldPriceTo(priceTo);
         ElementActions.waitElementDisappear(loader);
-        ElementActions.waitElementsPresents(resultPrices);
 
-        for (WebElement i : resultPrices) {
-            String mes = "This test cant working because Olx get in result mix currency of price in $ and in hrn";
-            Assert.assertTrue(mes,parseInt(i.getText()) >= parseInt(priceFrom) && parseInt(i.getText()) <= parseInt(priceTo));
+        if(emptyResults.isDisplayed()){
+            System.out.println(ThreadDriver.getWebDriver().findElement(By.cssSelector("#body-container .content .emptynew .marker")).getText());
+        }
+        else {
+            ElementActions.waitElementsPresents(resultPrices);
+
+            for (WebElement i : resultPrices) {
+                String mes = "This test cant working because Olx get in result mix currency of price in $ and in hrn";
+                Assert.assertTrue(mes, parseInt(i.getText()) >= parseInt(priceFrom) && parseInt(i.getText()) <= parseInt(priceTo));
+            }
         }
         return this;
     }

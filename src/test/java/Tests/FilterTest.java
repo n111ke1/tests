@@ -81,7 +81,7 @@ public void initPages() {
             .selectMotorMileageToSelect("200000");
 }
 
-@Test /**This test cant working because Olx get in result mix currency of price in $ and in hrn**/
+@Test /**This test can't working because Olx get in result mix currency of price in $ and in hrn**/
     public void checkPriceinResultLIst(){
     openPage();
     filterPage.checkPriceAfterSort("100000", "600000" );

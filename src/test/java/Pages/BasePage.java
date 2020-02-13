@@ -18,7 +18,7 @@ public class BasePage {
 
 /***Elements for Search block***/
     @FindBy(id = "search-text")
-   public  WebElement searchInput;
+   public static WebElement searchInput;
 
     @FindBy(id ="param_subcat" )
     public WebElement brandCar;
@@ -27,7 +27,7 @@ public class BasePage {
     public  WebElement category;
 
     @FindBy(id = "cityField")
-    public WebElement city;
+    public static WebElement city;
 
 
 /***Elements for filters block***/
@@ -67,8 +67,11 @@ public class BasePage {
     @FindBy(css = "#param_motor_mileage .filter-item:nth-child(2)")
     public WebElement motorMileageTo;
 
-    @FindBy(css = "#offers_table .price")
+    @FindBy(css = "#body-container .content .price")
     public List<WebElement> resultPrices;
+
+    @FindBy(css = "#body-container .content .emptynew")
+    public WebElement emptyResults;
 
 }
 
