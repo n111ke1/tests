@@ -4,60 +4,16 @@ import Helper.ElementActions;
 import Helper.ThreadDriver;
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
-import java.util.List;
-
 import static java.lang.Integer.*;
-import static java.lang.Thread.sleep;
+
+
+
 
 public class FilterPage extends BasePage {
 
     public FilterPage(WebDriver driver) {
         super(driver);
     }
-
-
-
-    @FindBy(id = "param_subcat")
-    private WebElement carBrandField;
-
-    @FindBy(css = "#param_subcat .suggestinput li a")
-    private List<WebElement> carBrandNames;
-
-    @FindBy(css = ".filter-both-item .price:nth-child(1) .num-input input")
-    private WebElement priceFromFieldInput;
-
-    @FindBy(css = ".filter-both-item .price:nth-child(2) .num-input input")
-    private WebElement priceToFieldInput;
-
-    @FindBy(css = ".filter-item-transmission_type")
-    private WebElement transmissionTypeCheckBox;
-
-    @FindBy(css = ".filter-item-transmission_type .suggestinput [type='checkbox'][data-text='Механическая']")
-    private WebElement transmissionTypeMechanichal;
-
-    @FindBy(css = ".filter-both-item .price:nth-child(1) .header")
-    private WebElement priceFromField;
-    @FindBy(css = ".filter-both-item .price:nth-child(2) .header")
-    private WebElement priceToField;
-
-
-    @FindBy(css = "#param_motor_mileage .filter-item:nth-child(1) input")
-    private WebElement motorMileageFromInput;
-
-    @FindBy(css = "#param_motor_mileage .filter-item:nth-child(2) input")
-    private WebElement motorMileageToInput;
-
-    @FindBy(css = "#param_motor_mileage .filter-item:nth-child(1)")
-    private WebElement motorMileageFrom;
-
-    @FindBy(css = "#param_motor_mileage .filter-item:nth-child(2)")
-    private WebElement motorMileageTo;
-
-    @FindBy(css = "#offers_table .price")
-    private List<WebElement> resultPrices;
 
 
     public FilterPage activateCarBrandField() {
@@ -68,7 +24,6 @@ public class FilterPage extends BasePage {
 
     public FilterPage checkCarBrandsName() {
         ElementActions.waitElementPresent(carBrandNames.get(10));
-
         return this;
 
     }
@@ -79,7 +34,6 @@ public class FilterPage extends BasePage {
         priceToField.click();
         priceToFieldInput.sendKeys(price);
         priceToFieldInput.sendKeys(Keys.ENTER);
-
         return this;
     }
 
@@ -88,7 +42,6 @@ public class FilterPage extends BasePage {
         priceFromField.click();
         priceFromFieldInput.sendKeys(price);
         priceFromFieldInput.sendKeys(Keys.ENTER);
-
         return this;
     }
 
@@ -113,36 +66,27 @@ public class FilterPage extends BasePage {
 
 
     public FilterPage motorMileageFromInput(String forCheck) {
-//        WebElement Field = ThreadDriver.getWebDriver().findElement(By.cssSelector("#param_motor_mileage .filter-item:nth-child(1)"));
         WebElement hiddenElement = ThreadDriver.getWebDriver().findElement(By.cssSelector("#param_motor_mileage .filter-item:nth-child(1) .hidden"));
-
         WebElement buttonSearch = ThreadDriver.getWebDriver().findElement(By.id("search-submit"));
         ElementActions.waitElementPresent(motorMileageFrom);
         motorMileageFrom.click();
         motorMileageFromInput.sendKeys(forCheck);
         ElementActions.moveMouseToElement(buttonSearch);
         ElementActions.waitElementDisappear(hiddenElement);
-
         Assert.assertEquals(motorMileageFrom.getText(), "от " + forCheck + " км");
-
         return this;
 
     }
 
     public FilterPage motorMileageToInput(String forCheck) {
-//        WebElement el = ThreadDriver.getWebDriver().findElement(By.cssSelector("#param_motor_mileage .filter-item:nth-child(2)"));
         WebElement hiddenElement = ThreadDriver.getWebDriver().findElement(By.cssSelector("#param_motor_mileage .filter-item:nth-child(2) .hidden"));
-
         WebElement buttonToMove = ThreadDriver.getWebDriver().findElement(By.id("search-submit"));
         ElementActions.waitElementPresent(motorMileageTo);
         motorMileageTo.click();
         motorMileageToInput.sendKeys(forCheck);
         ElementActions.moveMouseToElement(buttonToMove);
         ElementActions.waitElementDisappear(hiddenElement);
-
         Assert.assertEquals(motorMileageTo.getText(), "до " + forCheck + " км");
-
-
         return this;
 
     }
@@ -155,7 +99,6 @@ public class FilterPage extends BasePage {
         WebElement elSelect = ThreadDriver.getWebDriver().findElement(By.cssSelector("#param_motor_mileage .filter-item:nth-child(1) .suggestinput .search-choose[data-value='" + selectValue + "']"));
         elSelect.click();
         Assert.assertEquals(el.getText(), "от " + selectValue + " км");
-
         return this;
     }
 
@@ -164,10 +107,10 @@ public class FilterPage extends BasePage {
         WebElement el = ThreadDriver.getWebDriver().findElement(By.cssSelector("#param_motor_mileage .filter-item:nth-child(2) .button-to"));
         ElementActions.waitElementPresent(motorMileageTo);
         motorMileageTo.click();
-        WebElement elSelect = ThreadDriver.getWebDriver().findElement(By.cssSelector("#param_motor_mileage .filter-item:nth-child(2) .suggestinput .search-choose[data-value='" + selectValue + "']"));
+        WebElement elSelect = ThreadDriver.getWebDriver()
+                .findElement(By.cssSelector("#param_motor_mileage .filter-item:nth-child(2) .suggestinput .search-choose[data-value='" + selectValue + "']"));
         elSelect.click();
         Assert.assertEquals(el.getText(), "до " + selectValue + " км");
-
         return this;
     }
 
@@ -188,29 +131,19 @@ public class FilterPage extends BasePage {
     }
 
 
-
-
-
-
     public FilterPage checkTransmissionTypeAll(){
-    ElementActions.waitElementPresent(transmissionTypeCheckBox);
-    transmissionTypeCheckBox.click();
-    transmissionTypeCheckBox.findElement(By.id("f-all-filter_enum_transmission_type_45")).isSelected();
-    return  this;
-}
+        ElementActions.waitElementPresent(transmissionTypeCheckBox);
+        transmissionTypeCheckBox.click();
+        transmissionTypeCheckBox.findElement(By.id("f-all-filter_enum_transmission_type_45")).isSelected();
+        return  this;
+    }
 
-public FilterPage checkTransmissionTypeAllAfterSelectedAnother(){
-    ElementActions.waitElementPresent(transmissionTypeMechanichal);
-    transmissionTypeMechanichal.click();
-    Assert.assertFalse(transmissionTypeCheckBox.findElement(By.id("f-all-filter_enum_transmission_type_45")).isSelected());
-
-    return this;
-}
-
-
-
-
-
+    public FilterPage checkTransmissionTypeAllAfterSelectedAnother(){
+        ElementActions.waitElementPresent(transmissionTypeMechanichal);
+        transmissionTypeMechanichal.click();
+        Assert.assertFalse(transmissionTypeCheckBox.findElement(By.id("f-all-filter_enum_transmission_type_45")).isSelected());
+        return this;
+    }
 
 
 }

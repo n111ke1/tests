@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 
-
 public class SearchPage extends  BasePage {
 
 
@@ -28,20 +27,8 @@ public class SearchPage extends  BasePage {
         ElementActions.waitElementPresent(category);
         String fieldText = category.getText();
         Assert.assertEquals(fieldText,text);
-
         return this;
     }
-
-
-
-
-
-
-//    public SearchPage checkSelectedCity(String CityText){
-//            city(CityText);
-//        return this;
-//    }
-
 
 
 

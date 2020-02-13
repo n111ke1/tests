@@ -56,10 +56,6 @@ public class Configuration {
         options.addArguments("--disable-gpu");
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
-
-
-
-
         return new ChromeDriver(options);
     }
 
