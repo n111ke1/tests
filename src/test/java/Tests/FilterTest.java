@@ -1,30 +1,26 @@
 package Tests;
 
+
 import Helper.ThreadDriver;
 import Pages.BasePage;
 import Pages.FilterPage;
 import Pages.SearchPage;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.PageFactoryFinder;
 
-
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 public class FilterTest extends BaseTest {
 private static SearchPage searchPage;
 private static FilterPage filterPage;
 
 
 
-@BeforeEach
+@BeforeTest
 public void initPages() {
     searchPage = PageFactory.initElements(driver, SearchPage.class);
     filterPage = PageFactory.initElements(driver, FilterPage.class);
 }
-
 
 @Test
     public void checkSearch(){
@@ -44,6 +40,7 @@ public void initPages() {
     searchPage.checkFieldValueByText("Легковые автомобили");
 
 }
+
 @Test
     public void checkCarBrandsNameInList(){
     openPage();
@@ -66,7 +63,6 @@ public void initPages() {
 
 }
 
-
 @Test
     public void checkMotorMileageInput(){
     openPage();
@@ -74,6 +70,7 @@ public void initPages() {
             .motorMileageToInput("200000");
 
 }
+
 @Test
     public void checkMotorMileageSelect(){
     openPage();
@@ -85,6 +82,7 @@ public void initPages() {
     public void checkPriceinResultLIst(){
     openPage();
     filterPage.checkPriceAfterSort("100000", "600000" );
+
 }
 
 

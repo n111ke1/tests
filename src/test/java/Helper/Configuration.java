@@ -45,7 +45,8 @@ public class Configuration {
 
     public static WebDriver getChromeDriver(){
         System.setProperty("webdriver.chrome.driver", properties().getProperty("pathToChromeDriver"));
-
+        System.setProperty("webdriver.chrome.verboseLogging", "true");
+        System.setProperty("webdriver.chrome.logfile", "src/test/resources/Logs.log");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("enable-automation");
 //        options.addArguments("--headless");
@@ -66,7 +67,7 @@ public class Configuration {
 
 
     public static WebDriver getFireFoxDriver(){
-        System.setProperty("webdriver.chrome.driver", properties().getProperty("pathToFirefoxDriver"));
+        System.setProperty("webdriver.gecko.driver", properties().getProperty("pathToFirefoxDriver"));
 
 
         return new FirefoxDriver();

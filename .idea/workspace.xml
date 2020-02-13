@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26d8fe01-6afc-4d1b-86d3-ba8830b8565a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/Logs.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Helper/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Helper/Configuration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Helper/ElementActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Helper/ElementActions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/FilterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/FilterPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/FilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/FilterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/data.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/data.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +24,13 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="test" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,7 +49,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.FilterTest.checkPriceinResultLIst">
+  <component name="RunManager" selected="TestNG.FilterTest.checkPriceinResultLIst">
     <configuration name="FilterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <extension name="coverage">
@@ -47,22 +61,6 @@
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.FilterTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FilterTest.checkCity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.FilterTest" />
-      <option name="METHOD_NAME" value="checkCity" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -99,7 +97,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FilterTest.checkSearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FilterTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <extension name="coverage">
         <pattern>
@@ -109,19 +107,38 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.FilterTest" />
-      <option name="METHOD_NAME" value="checkSearch" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FilterTest.checkPriceinResultLIst" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.FilterTest" />
+      <option name="METHOD_NAME" value="checkPriceinResultLIst" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.FilterTest.checkPriceinResultLIst" />
+        <item itemvalue="TestNG.FilterTest" />
         <item itemvalue="JUnit.FilterTest.checkPriceinResultLIst" />
         <item itemvalue="JUnit.FilterTest.checkFieldsPriceAfterInputLetters" />
         <item itemvalue="JUnit.FilterTest" />
-        <item itemvalue="JUnit.FilterTest.checkCity" />
-        <item itemvalue="JUnit.FilterTest.checkSearch" />
       </list>
     </recent_temporary>
   </component>
@@ -159,22 +176,22 @@
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state x="2584" y="208" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1920.1050/1920.0.1920.1050@1920.0.1920.1050" timestamp="1581529194033" />
-    <state width="1879" height="360" key="GridCell.Tab.0.bottom" timestamp="1581587827347">
+    <state width="1879" height="367" key="GridCell.Tab.0.bottom" timestamp="1581592292677">
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
-    <state width="1879" height="360" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1920.1050@1920.0.1920.1050" timestamp="1581587827347" />
-    <state width="1879" height="360" key="GridCell.Tab.0.center" timestamp="1581587827346">
+    <state width="1879" height="367" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1920.1050@1920.0.1920.1050" timestamp="1581592292677" />
+    <state width="1879" height="367" key="GridCell.Tab.0.center" timestamp="1581592292677">
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
-    <state width="1879" height="360" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1920.1050@1920.0.1920.1050" timestamp="1581587827346" />
-    <state width="1879" height="360" key="GridCell.Tab.0.left" timestamp="1581587827346">
+    <state width="1879" height="367" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1920.1050@1920.0.1920.1050" timestamp="1581592292677" />
+    <state width="1879" height="367" key="GridCell.Tab.0.left" timestamp="1581592292677">
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
-    <state width="1879" height="360" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1920.1050@1920.0.1920.1050" timestamp="1581587827346" />
-    <state width="1879" height="360" key="GridCell.Tab.0.right" timestamp="1581587827347">
+    <state width="1879" height="367" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1920.1050@1920.0.1920.1050" timestamp="1581592292677" />
+    <state width="1879" height="367" key="GridCell.Tab.0.right" timestamp="1581592292677">
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
-    <state width="1879" height="360" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050@1920.0.1920.1050" timestamp="1581587827347" />
+    <state width="1879" height="367" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050@1920.0.1920.1050" timestamp="1581592292677" />
     <state x="2410" y="180" key="Maven.ArtifactSearchDialog" timestamp="1581528131752">
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>

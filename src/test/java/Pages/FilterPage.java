@@ -120,16 +120,14 @@ public class FilterPage extends BasePage {
         ElementActions.waitElementDisappear(loader);
         setValueFieldPriceTo(priceTo);
         ElementActions.waitElementDisappear(loader);
-
-        if(emptyResults.isDisplayed()){
-            System.out.println(ThreadDriver.getWebDriver().findElement(By.cssSelector("#body-container .content .emptynew .marker")).getText());
-        }
+            if (emptyResults.isDisplayed()) {
+                String message = ThreadDriver.getWebDriver().findElement(By.cssSelector("#body-container .content .emptynew .marker")).getText();
+                System.out.println();
+            }
         else {
             ElementActions.waitElementsPresents(resultPrices);
-
             for (WebElement i : resultPrices) {
-                String mes = "This test cant working because Olx get in result mix currency of price in $ and in hrn";
-                Assert.assertTrue(mes, parseInt(i.getText()) >= parseInt(priceFrom) && parseInt(i.getText()) <= parseInt(priceTo));
+                Assert.assertTrue(parseInt(i.getText()) >= parseInt(priceFrom) && parseInt(i.getText()) <= parseInt(priceTo));
             }
         }
         return this;
